@@ -72,29 +72,33 @@ export default function Home() {
         <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
           Experience
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-8 relative">
+          <div className="absolute left-[22px] top-3 bottom-8 w-px bg-gray-700" />
           {experience.map((job, i) => (
-            <div key={i} className="space-y-3">
-              <div className="flex justify-between items-start gap-4">
-                <div>
-                  <p>
-                    <span className="font-medium">
-                      {job.company}
-                    </span>
-                    {job.companySubText && (
-                      <span className="text-xs"> {job.companySubText}</span>
-                    )}
-                  </p>
-                  <p className="text-gray-400">
-                      {job.role} <span className="text-gray-500">({job.period})</span>
+            <div key={i} className="relative pl-12">
+              <div className="absolute left-[13px] top-1.5 w-[18px] h-[18px] rounded-full bg-gray-800 border-2 border-gray-500" />
+              <div className="bg-gray-900/50 rounded-lg p-4 space-y-3">
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <p>
+                      <span className="font-medium">
+                        {job.company}
+                      </span>
+                      {job.companySubText && (
+                        <span className="text-xs"> {job.companySubText}</span>
+                      )}
                     </p>
+                    <p className="text-gray-400">
+                        {job.role} <span className="text-gray-500">({job.period})</span>
+                      </p>
+                  </div>
                 </div>
+                <ul className="space-y-4 text-sm text-gray-400">
+                  {job.summary.map((item, k) => (
+                    <li key={k} className="leading-relaxed">{item}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2 text-sm text-gray-400">
-                {job.summary.map((item, k) => (
-                  <li key={k} className="leading-relaxed">{item}</li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
