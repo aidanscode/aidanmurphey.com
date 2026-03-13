@@ -15,7 +15,9 @@ const experience: Experience[] = [
     period: "2025 - Present",
     role: "Software Engineer III",
     summary: [
-      
+      "Owned and executed my platform’s integration into a company-wide centralized identity system, shipping a beta with corporate SSO, modernized authentication, MFA, and session security; built monitoring for early issue detection, managed cross-platform user/company mapping, and delegated a key component's implementation to another engineer to de-risk delivery.",
+      "Delivered a step-change in engineering culture and code quality for a long-tenured team by driving adoption of strong development practices, code review rigor, and design reviews, improving velocity and maintainability.",
+      "Won company-wide \"Dev-Ex\" award for modernizing a legacy frontend build pipeline through a ~30K LOC migration, replacing an abandoned critical dependency, reducing build times from 60+ seconds to ~6 seconds, and significantly improving frontend development velocity."
     ]
   },
   {
