@@ -3,7 +3,7 @@ import Link from "next/link";
 type Experience = {
   company: string,
   companySubText?: string,
-  period: string,
+  period: {start: string, end: string},
   role: string,
   summary: string[]
 }
@@ -12,7 +12,7 @@ const experience: Experience[] = [
   {
     company: "Vistar Media",
     companySubText: "(Acquired by T-Mobile)",
-    period: "2025 - Present",
+    period: {start: '2025', end: 'Present'},
     role: "Software Engineer III",
     summary: [
       "Owned and executed my platform’s integration into a company-wide centralized identity system, shipping a beta with corporate SSO, modernized authentication, MFA, and session security; built monitoring for early issue detection, managed cross-platform user/company mapping, and delegated a key component's implementation to another engineer to de-risk delivery.",
@@ -22,7 +22,7 @@ const experience: Experience[] = [
   },
   {
     company: "Amazon",
-    period: "2023 — 2025",
+    period: {start: '2023', end: '2025'},
     role: "Software Development Engineer II",
     summary: [
       "Led design and implementation of backend systems supporting the national launch of a new consumer subscription product, including major expansions to eligibility and status APIs.",
@@ -32,7 +32,7 @@ const experience: Experience[] = [
   },
   {
     company: "Amazon",
-    period: "2022 — 2023",
+    period: {start: '2022', end: '2023'},
     role: "Software Development Engineer I",
     summary: [
       "Designed and built a core internal API service powering the pilot of a new consumer subscription product, serving multiple dependent services in production.",
@@ -42,7 +42,7 @@ const experience: Experience[] = [
   },
   {
     company: "DeliveryCircle",
-    period: "2019 — 2021",
+    period: {start: '2019', end: '2021'},
     role: "Software Engineer",
     summary: [
       "Developed the company's core SaaS delivery-management platform, taking the product from initial development through launch.",
@@ -89,7 +89,7 @@ export default function Home() {
                       )}
                     </p>
                     <p className="text-gray-400">
-                        {job.role} <span className="text-gray-500">({job.period})</span>
+                        {job.role} <span className="text-gray-500">({job.period.start} — {job.period.end})</span>
                       </p>
                   </div>
                 </div>
@@ -114,8 +114,7 @@ export default function Home() {
               key={link.label}
               href={link.href}
               className="text-gray-200 hover:underline underline-offset-4 transition-colors"
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              target="_blank"
             >
               {link.label}
             </Link>
