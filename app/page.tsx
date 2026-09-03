@@ -102,9 +102,24 @@ export default function Home() {
       <section className="space-y-4">
         <h1 className="text-3xl font-semibold tracking-tight">Hi, I'm Aidan</h1>
         <p className="text-gray-400 leading-relaxed max-w-md">
-          Senior software engineer building software people love while elevating teams and
-          engineering culture.
+          Senior software engineer. I find the problems nobody scoped, and ship the fix.
         </p>
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider">Selected work</h2>
+        <Link
+          href="/work/auth"
+          className="block bg-gray-900/50 rounded-lg p-4 space-y-3 hover:bg-gray-900 transition-colors group"
+        >
+          <p className="text-gray-300 leading-relaxed">
+            Sent to migrate an auth tenant. Found master passwords committed to the repo, and a user
+            table where one account in ten was still in use. Neither was in the ask.
+          </p>
+          <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+            Rebuilding authentication for a multi-tenant platform &rarr;
+          </p>
+        </Link>
       </section>
 
       <section className="space-y-6">

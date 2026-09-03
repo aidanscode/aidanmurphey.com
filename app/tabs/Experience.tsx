@@ -11,10 +11,10 @@ const experience: Experience[] = [
     company: 'Vistar Media',
     companySubText: '(Acquired by T-Mobile)',
     period: { start: '2025', end: 'Present' },
-    role: 'Software Engineer III',
+    role: 'Senior Software Engineer',
     summary: [
-      "Owned and executed my platform's integration into a company-wide centralized identity system, shipping a beta with corporate SSO, modernized authentication, MFA, and session security; built monitoring for early issue detection, managed cross-platform user/company mapping, and delegated a key component's implementation to another engineer to de-risk delivery.",
-      'Delivered a step-change in engineering culture and code quality for a long-tenured team by driving adoption of strong development practices, code review rigor, and design reviews, improving velocity and maintainability.',
+      "Rebuilt authentication for a multi-tenant SaaS platform, replacing home-rolled session auth with the company's central identity provider: corporate SSO, MFA, email verification, session expiry, and an audited impersonation system that retired a long-standing set of employee master passwords. Reconciled every user and company into the central store across platforms that shared no common identifier.",
+      "Rebuilt the team's code review process. Reviewer rotation replaced all-hands assignment, assignment now fires an automatic notification, and the team authored its own review standards. Rubber-stamp approvals and multi-day waits became consistent, substantive reviews, and design review now happens ahead of implementation.",
       'Won company-wide "Dev-Ex" award for modernizing a legacy frontend build pipeline through a ~30K LOC migration, replacing an abandoned critical dependency, reducing build times from 60+ seconds to ~6 seconds, and significantly improving frontend development velocity.',
     ],
   },

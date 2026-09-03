@@ -3,8 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: "Hi, I'm Aidan",
-  description:
-    'Senior software engineer building software people love while elevating teams and engineering culture.',
+  description: 'Senior software engineer. I find the problems nobody scoped, and ship the fix.',
 };
 
 export default function RootLayout({
