@@ -26,7 +26,7 @@ const tabs: Tab[] = [
   {
     id: 'resume',
     label: 'Resume',
-    url: 'https://z20hjnw7tm.ufs.sh/f/D8T2VvQaUE3QpejT41SxQS8rc5oTlF3gvsn7m1IAazPCGNOL',
+    url: 'https://z20hjnw7tm.ufs.sh/f/D8T2VvQaUE3QSYtVzOFkhbcn1KfZ9lMjvA5wPWVarI24gqUo',
   },
 ];
 
