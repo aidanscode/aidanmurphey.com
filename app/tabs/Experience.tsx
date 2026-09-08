@@ -1,9 +1,13 @@
+import Link from 'next/link';
+
+type SummaryItem = string | { text: string; caseStudy: { href: string; label: string } };
+
 type Experience = {
   company: string;
   companySubText?: string;
   period: { start: string; end: string };
   role: string;
-  summary: string[];
+  summary: SummaryItem[];
 };
 
 const experience: Experience[] = [
@@ -13,9 +17,12 @@ const experience: Experience[] = [
     period: { start: '2025', end: 'Present' },
     role: 'Senior Software Engineer',
     summary: [
-      "Rebuilt authentication for a multi-tenant SaaS platform, replacing home-rolled session auth with the company's central identity provider: corporate SSO, MFA, email verification, session expiry, and an audited impersonation system that retired a long-standing set of employee master passwords. Reconciled every user and company into the central store across platforms that shared no common identifier.",
-      "Rebuilt the team's code review process. Reviewer rotation replaced all-hands assignment, assignment now fires an automatic notification, and the team authored its own review standards. Rubber-stamp approvals and multi-day waits became consistent, substantive reviews, and design review now happens ahead of implementation.",
-      'Won company-wide "Dev-Ex" award for modernizing a legacy frontend build pipeline through a ~30K LOC migration, replacing an abandoned critical dependency, reducing build times from 60+ seconds to ~6 seconds, and significantly improving frontend development velocity.',
+      {
+        text: "Rebuilt authentication for a multi-tenant SaaS platform, replacing home-rolled session auth with the company's central identity provider: corporate SSO, MFA, email verification, session expiry, and an audited impersonation system that retired a long-standing set of employee master passwords. Reconciled every user and company into the central store across platforms that shared no common identifier.",
+        caseStudy: { href: '/work/auth', label: 'Read the case study' },
+      },
+      "Saw rubber-stamp approvals and multi-day review waits, and rebuilt the team's code review process on my own initiative. Reviewer rotation replaced all-hands assignment, assignment now fires an automatic notification, and the team authored its own review standards. Reviews are now consistent and substantive, and design review happens ahead of implementation.",
+      'Frontend builds took 60+ seconds, even incremental ones, on a critical dependency that had been abandoned. It had never been raised as a problem, and the team just quietly worked around it. Overhauled the pipeline in my first months at the company: a ~30K LOC migration that replaced the dependency and cut builds to ~6 seconds. Won a company-wide "Dev-Ex" award.',
     ],
   },
   {
@@ -65,7 +72,7 @@ export default function Experience() {
                 <p className="text-gray-400">
                   {job.role}{' '}
                   <span className="text-gray-500">
-                    ({job.period.start} — {job.period.end})
+                    ({job.period.start}–{job.period.end})
                   </span>
                 </p>
               </div>
@@ -73,7 +80,19 @@ export default function Experience() {
             <ul className="space-y-4 text-sm text-gray-400">
               {job.summary.map((item, k) => (
                 <li key={k} className="leading-relaxed">
-                  {item}
+                  {typeof item === 'string' ? (
+                    item
+                  ) : (
+                    <>
+                      {item.text}{' '}
+                      <Link
+                        href={item.caseStudy.href}
+                        className="text-gray-200 whitespace-nowrap hover:underline underline-offset-4"
+                      >
+                        {item.caseStudy.label} &rarr;
+                      </Link>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>

@@ -6,12 +6,6 @@ import Experience from './tabs/Experience';
 import Education from './tabs/Education';
 import LaunchIcon from './icons/launch';
 
-const links = [
-  { href: 'https://github.com/AidansCode', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/aidan-m-127088121', label: 'LinkedIn' },
-  { href: 'mailto:amurphey@tutanota.com', label: 'Email' },
-];
-
 type ViewableTab = {
   id: string;
   label: string;
@@ -102,21 +96,30 @@ export default function Home() {
       <section className="space-y-4">
         <h1 className="text-3xl font-semibold tracking-tight">Hi, I'm Aidan</h1>
         <p className="text-gray-400 leading-relaxed max-w-md">
-          Senior software engineer. I find the problems nobody scoped, and ship the fix.
+          Senior software engineer. The work that matters is often the work nobody thought to ask
+          for. I go find it.
         </p>
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider">Selected work</h2>
+        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
+          Selected work
+        </h2>
         <Link
           href="/work/auth"
-          className="block bg-gray-900/50 rounded-lg p-4 space-y-3 hover:bg-gray-900 transition-colors group"
+          className="block bg-gray-900/50 border border-gray-800 rounded-lg p-4 hover:bg-gray-900 hover:border-gray-700 transition-colors group"
         >
           <p className="text-gray-300 leading-relaxed">
-            Sent to migrate an auth tenant. Found master passwords committed to the repo, and a user
-            table where one account in ten was still in use. Neither was in the ask.
+            Sent to migrate our login system into the company&apos;s. Found master passwords
+            committed to the repo, and a user table where one account in ten was still in use.
+            Neither was in the ask.
           </p>
-          <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+          <p className="mt-3 text-xs text-gray-500 uppercase tracking-wider">
+            <span className="whitespace-nowrap">Seven months</span> &middot;{' '}
+            <span className="whitespace-nowrap">Hundreds of companies</span> &middot;{' '}
+            <span className="whitespace-nowrap">No shared key between systems</span>
+          </p>
+          <p className="mt-1.5 text-sm font-medium text-gray-200 group-hover:underline underline-offset-4">
             Rebuilding authentication for a multi-tenant platform &rarr;
           </p>
         </Link>
@@ -136,22 +139,6 @@ export default function Home() {
           />
         </div>
         <ActiveComponent />
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider">Connect</h2>
-        <div className="flex gap-6">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-gray-200 hover:underline underline-offset-4 transition-colors"
-              target="_blank"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
       </section>
     </div>
   );

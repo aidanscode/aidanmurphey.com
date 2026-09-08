@@ -1,10 +1,18 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+
+const title = 'Rebuilding authentication for a multi-tenant platform';
+const description =
+  "Sent to migrate our login system into the company's. Found master passwords committed to the repo, and a user table where one account in ten was still in use. Neither was in the ask.";
 
 export const metadata: Metadata = {
-  title: 'Rebuilding authentication for a multi-tenant platform',
-  description:
-    'Sent to migrate an auth tenant. Found master passwords committed to the repo, and a user table where one account in ten was still in use. Neither was in the ask.',
+  title,
+  description,
+  openGraph: {
+    type: 'article',
+    title: `${title} — Aidan Murphey`,
+    description,
+    authors: ['Aidan Murphey'],
+  },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -19,17 +27,11 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export default function AuthCaseStudy() {
   return (
     <div className="space-y-12">
-      <Link
-        href="/"
-        className="text-sm text-gray-500 hover:text-gray-300 transition-colors inline-block"
-      >
-        &larr; Back
-      </Link>
-
       <section className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Rebuilding authentication for a multi-tenant platform
-        </h1>
+        <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+          Case study &middot; Vistar Media &middot; 2025
+        </p>
+        <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
         <p className="text-gray-400 leading-relaxed">
           Several hundred customer organizations, seven months. Me, plus a junior engineer who owned
           the login flow integration and the impersonation system. No PM for the first two thirds of
@@ -82,8 +84,8 @@ export default function AuthCaseStudy() {
       <Section title="Deciding what counted as an active account">
         <p>
           The user table was roughly ten times larger than the active user base. Years of abandoned
-          signups and dormant accounts had piled up and nobody had ever cleaned them out. Nobody
-          knew the real number until I went looking.
+          signups and dormant accounts had piled up and never been cleaned out. Nobody knew the real
+          number until I went looking.
         </p>
         <p>
           Rather than pick a definition of active myself, I listed every signal the production data
@@ -144,7 +146,7 @@ export default function AuthCaseStudy() {
         </p>
         <p>
           The work was small. A minimal version was a week or two. It was not ours to build, though.
-          Cross-platform provisioning belonged to the platform team, a second platform was migrating
+          Cross-platform provisioning belonged to the Platform team, a second platform was migrating
           behind us so anything real would have had to serve both, and a shortcut serving only us
           was not something they would accept for a problem already on their roadmap. So the choice
           was never build or wait. It was whether to spend the limited goodwill we had with that
@@ -176,7 +178,7 @@ export default function AuthCaseStudy() {
 
       <Section title="Working through a dependency I didn't control">
         <p>
-          Every integration decision needed sign-off from a platform team that was badly overloaded,
+          Every integration decision needed sign-off from a Platform team that was badly overloaded,
           where the default answer to any new proposal was no. First ask to unblocked ran one to two
           months at the start of the project. By the end it was under a week. Their capacity did not
           change and their priorities did not change. What changed was how I asked.
