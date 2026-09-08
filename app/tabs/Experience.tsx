@@ -50,7 +50,7 @@ const experience: Experience[] = [
     period: { start: '2019', end: '2021' },
     role: 'Software Engineer',
     summary: [
-      "Developed the company's core SaaS delivery-management platform, taking the product from initial development through launch.",
+      "Built the company's core SaaS delivery-management platform, taking the product from initial development through launch.",
     ],
   },
 ];
@@ -72,7 +72,7 @@ export default function Experience() {
                 <p className="text-gray-400">
                   {job.role}{' '}
                   <span className="text-gray-500">
-                    ({job.period.start}–{job.period.end})
+                    ({job.period.start} — {job.period.end})
                   </span>
                 </p>
               </div>
